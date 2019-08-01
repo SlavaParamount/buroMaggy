@@ -1,0 +1,15 @@
+{
+  "name": "flaskbase",
+  "version": "1.0.0",
+  "description": "my test proj",
+  "main": "app.py",
+  "scripts": {
+    "test": "flask run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "BuroMaggy back"
+  },
+  "author": "Paramount",
+  "license": "ISC"
+}

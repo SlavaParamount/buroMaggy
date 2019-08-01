@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Change fields</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	{% for post in posts %}
+		<p>{{ post.message }}</p>
+		<form action="{{ url_for('edit', id=post.id) }}" method="POST">
+     	<input type="hidden" name="_method" value="DELETE" />
+     	<input type="submit" value="Delete entry" />
+</form>
+	{% endfor %}
+</body>
+</html>
