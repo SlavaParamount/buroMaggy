@@ -1,5 +1,3 @@
-import view
-from models import info
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Configuration
@@ -8,6 +6,8 @@ app = Flask(__name__)
 app.config.from_object(Configuration)
 db = SQLAlchemy(app)
 
+from models import info
+
 
 with app.app_context():
     db.create_all()
@@ -15,3 +15,5 @@ with app.app_context():
 
 if __name__ == '__main__':
     app.run()
+
+import view
