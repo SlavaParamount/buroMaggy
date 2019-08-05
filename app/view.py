@@ -3,6 +3,7 @@ from flask import render_template, request
 from models import info
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField, validators
+import git
 
 
 class postForm(FlaskForm):
@@ -25,6 +26,16 @@ def post():
         db.session.add(i)
         db.session.commit()
     return render_template('post.html', postform=postform)
+
+@app.route('/update_server', methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        repo = git.Repo('./app', search_parent_directories=True)
+        origin = repo.remotes.origin
+        origin.pull()
+        return 'Updated PythonAnywhere successfully', 200
+    else:
+        return 'Wrong event type', 400
 
 
 @app.route('/edit', methods=['GET', 'POST'])
