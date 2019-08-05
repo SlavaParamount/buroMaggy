@@ -12,5 +12,8 @@
 			<p>{{ post.message }}</p>
 		</div>
 	{%endfor%}
+	{% for pic in pics %}
+		<img src='{{ pic.link }}'>
+	{%endfor%}
 </body>
 </html>
