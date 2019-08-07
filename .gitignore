@@ -123,5 +123,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+<<<<<<< HEAD
 #Database
+=======
+>>>>>>> d1ddd08c242ee7e321521e3f19ef34717ce1fddb
 config.py
