@@ -5,7 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField, validators
 from flask_wtf.file import FileField
 from werkzeug import secure_filename
-import gitpython
+import git
 
 
 class postForm(FlaskForm):
