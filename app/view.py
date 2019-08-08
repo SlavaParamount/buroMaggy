@@ -5,6 +5,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField, validators
 from flask_wtf.file import FileField
 from werkzeug import secure_filename
+import gitpython
 
 
 class postForm(FlaskForm):
@@ -35,6 +36,15 @@ def upload():
         return redirect(url_for('upload'))
     return render_template('upload.html', form=form)
 
+@app.route('/update_server', methods=['POST'])
+def webhook():
+    if request.method == 'POST':
+        repo = git.Repo('./app', search_parent_directories=True)
+        origin = repo.remotes.origin
+        origin.pull()
+        return 'Updated PythonAnywhere successfully', 200
+    else:
+        return 'Wrong event type', 400
 
 @app.route('/addpost', methods=['GET', 'POST'])
 def post():
