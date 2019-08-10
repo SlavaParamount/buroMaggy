@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hello Flask</title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
+{% extends "base.html" %}
+{% block  contentblock %}
 	{% for post in posts %}
 		<div>
 			<p>{{ post.message }}</p>
@@ -15,5 +8,4 @@
 	{% for pic in pics %}
 		<img src='{{ pic.link }}'>
 	{%endfor%}
-</body>
-</html>
+{% endblock %}

@@ -29,6 +29,7 @@ def upload():
 
     if form.validate_on_submit():
         filename = secure_filename(form.file.data.filename)
+        print('file', filename)
         form.file.data.save('static/uploads/' + filename)
         newPic = Picture(link = '../static/uploads/' + filename)
         db.session.add(newPic)

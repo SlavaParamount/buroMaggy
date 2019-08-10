@@ -1,12 +1,11 @@
-<html>
-<head>
-<title>Upload</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block contentblock %}
 <form method="post" enctype="multipart/form-data">
-    {{ form.hidden_tag() }}
-    {{ form.file }}
-    <input type="submit">
+	<div class="custom-file">
+	    {{ form.hidden_tag() }}
+	    {{ form.file(class="custom-file-input", id="validatedCustomFile") }}
+	    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+	    <input type="submit" class="btn btn-primary">
+	</div>
 </form>
-</body>
-</html>
+{% endblock %}

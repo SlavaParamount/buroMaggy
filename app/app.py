@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config.from_object(Configuration)
 db = SQLAlchemy(app)
 
-from models import info
+from models import info, Picture
 
 
 with app.app_context():
