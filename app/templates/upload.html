@@ -5,6 +5,11 @@
 	    {{ form.hidden_tag() }}
 	    {{ form.file(class="custom-file-input", id="validatedCustomFile") }}
 	    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+	    <select name="category" multiple>
+	    	{% for cat in allCat %}
+	    		<option value="{{ cat.id }}">{{cat.message}}</option>
+	    	{% endfor %}
+	    </select>
 	    <input type="submit" class="btn btn-primary">
 	</div>
 </form>

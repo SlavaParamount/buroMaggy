@@ -26,6 +26,9 @@ def index():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     form = UploadForm()
+    allCat = []
+    allCat = info.query.all()
+    print(allCat)
 
     if form.validate_on_submit():
         filename = secure_filename(form.file.data.filename)
@@ -35,7 +38,7 @@ def upload():
         db.session.add(newPic)
         db.session.commit()
         return redirect(url_for('upload'))
-    return render_template('upload.html', form=form)
+    return render_template('upload.html', form=form, allCat = allCat)
 
 @app.route('/update_server', methods=['POST'])
 def webhook():
